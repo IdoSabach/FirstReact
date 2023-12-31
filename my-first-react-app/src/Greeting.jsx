@@ -6,9 +6,6 @@ function Greeting() {
       <p>idododod</p>
       <img src={image} alt="" />
       <div className="ido">i love eat pizza and milk</div>
-      <div className="ido">i love eat pizza and milk</div>
-      <div className="ido">i love eat pizza and milk</div>
-      <div className="ido">i love eat pizza and milk</div>
     </>
   );
 }
