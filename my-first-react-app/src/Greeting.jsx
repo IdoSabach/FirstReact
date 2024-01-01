@@ -1,12 +1,25 @@
-function Greeting() {
-  const image = "./Screenshot 2023-12-30 213133.png"
+function ListItem(props) {
+  return <li>{props.animal}</li>
+}
+
+function List(props) {
   return (
-    <>
-      <h1>&quot;I swear by my pretty floral bonnet, I will end you.&quot;</h1>
-      <p>idododod</p>
-      <img src={image} alt="" />
-      <div className="ido">i love eat pizza and milk</div>
-    </>
+    <ul>
+      {props.animals.map((animal) => {
+        return <ListItem key={animal} animal={animal} />;
+      })}
+    </ul>
+  );
+}
+
+function Greeting() {
+  const animals = ["Lion", "Cow", "Snake", "Lizard","Cat"];
+
+  return (
+    <div>
+      <h1>Animals: </h1>
+      <List animals={animals} />
+    </div>
   );
 }
 
