@@ -14,12 +14,14 @@ function List(props) {
 
 function Greeting() {
   const animals = ["Lion", "Cow", "Snake", "Lizard","Cat"];
+  const animalsList = animals.map((animal) => <li key={animal}>{animal}</li>)
 
   return (
-    <div>
-      <h1>Animals: </h1>
+    <>
+    <ul>{animalsList}</ul>
+      <h1 className="title">Animals: </h1>
       <List animals={animals} />
-    </div>
+    </>
   );
 }
 
