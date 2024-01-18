@@ -1,8 +1,28 @@
 *{
-  margin: 15px;
-  padding: 0;
+  margin: 0px 0px 0px;
+  padding: 0px 5% 0px;
 }
 
 .title{
+  background-color: aqua;
+}
+
+.sectionOne{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  /* border-style: dashed; */
+  gap: 15px;
+}
+
+.btn{
+  background: none;
+  /* border-style: dashed; */
+}
+
+.btn:hover{
+  cursor: pointer;
+}
+
+.btn:active{
   background-color: aqua;
 }
