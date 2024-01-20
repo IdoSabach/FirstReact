@@ -1,28 +1,39 @@
 *{
   margin: 0px 0px 0px;
-  padding: 0px 5% 0px;
+  padding: 0px 0px 0px;
+  /* outline: 1px red solid; */
 }
 
 .title{
   background-color: aqua;
 }
 
+.head{
+  font-size: 44px;
+  text-align: center;
+  padding: 15px 0px 15px;
+}
+
+.mainBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .sectionOne{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   /* border-style: dashed; */
-  gap: 15px;
+  /* gap: 15px; */
 }
 
 .btn{
   background: none;
   /* border-style: dashed; */
+  height: 150px;
+  width: 150px;
 }
 
 .btn:hover{
   cursor: pointer;
-}
-
-.btn:active{
-  background-color: aqua;
 }
