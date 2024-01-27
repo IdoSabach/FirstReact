@@ -1,39 +1,77 @@
 *{
-  margin: 0px 0px 0px;
-  padding: 0px 0px 0px;
+  padding: 0;
+  margin: 0;
   /* outline: 1px red solid; */
 }
 
-.title{
+html{
+  padding:20px 50px 0px ;
+  background-color: beige;
+}
+
+#header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.imgLogo{
+  width: 100px;
+  object-fit: cover;
+}
+
+.box-btn-head{
+  display: grid;
+  grid-template-columns: repeat(4 , 1fr);
+  gap: 20px;
+}
+
+#button{
+  width: 100px;
+  height: 35px;
+  background: none;
+  border-style: none;
+  border-radius: 20px;
+}
+
+#button:hover{
+  cursor: pointer;
+  border-style: solid;
+}
+
+#header div button.active{
   background-color: aqua;
 }
 
-.head{
-  font-size: 44px;
-  text-align: center;
-  padding: 15px 0px 15px;
-}
-
-.mainBox{
+#main{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
 
-.sectionOne{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  /* border-style: dashed; */
-  /* gap: 15px; */
+#counter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 55px;
 }
 
-.btn{
-  background: none;
-  /* border-style: dashed; */
-  height: 150px;
-  width: 150px;
+#counter button{
+  font-size: 40px;
+  margin: 0px 15px 0px;
+  width: 100px;
 }
 
-.btn:hover{
-  cursor: pointer;
+#counter p{
+  font-size: 40px;
+  margin: 0px 15px 0px;
+}
+
+#input, #big-input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 55px;
 }

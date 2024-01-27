@@ -1,76 +1,115 @@
 import Button from "./components/Button";
+import Logo from "./assets/wallpaperflare.com_wallpaper (11).jpg";
 import { useState } from "react";
 
-export default function App() {
-  const [curr, setCurr] = useState();
-  const arr = {
-    text1: "1",
-    text2: "2",
-    text3: "3",
-    text4: "4",
-    text5: "5",
-    text6: "6",
-    text7: "7",
-    text8: "8",
-    text9: "9",
-  };
 
-  function handleClick(name) {
-    setCurr(name);
-    console.log(name);
+export default function App() {
+  const [currMain, setCurrMain] = useState();
+  const [person , setPerson] = useState({name: 'ido' , age:23})
+  const [value , setValue] = useState("")
+  const [isSend , setIsSend] = useState(false)
+
+  let send;
+  if(isSend){
+    return <h1>Your message is on its way!</h1>
   }
+
+  const minus = () => {
+    const newPerson = {name : ' ido the king ' , age :person.age -1}
+    setPerson(newPerson)
+  }
+
+  const plus = () => {
+    const newPerson = {...person , name : 'ido', age :person.age +1}
+    setPerson(newPerson)
+  }
+
+  let text = <h1>pls enter on one section</h1>;
+
+  if (currMain === 0) {
+    text = (
+      <div>
+        <h1>Im Home section</h1>
+      </div>
+    );
+  } else if (currMain === 1) {
+    text = (
+      <div>
+        <h1>Im Menu section</h1>
+      </div>
+    );
+  } else if (currMain === 2) {
+    text = (
+      <div>
+        <h1>Im About section</h1>
+      </div>
+    );
+  } else if (currMain === 3) {
+    text = (
+      <div>
+        <h1>Im Contact section</h1>
+      </div>
+    );
+  }
+  const handlePrint = (id) => {
+    setCurrMain(id);
+    console.log(id);
+  };
 
   return (
     <>
-      <header className="head">Title of page</header>
-      <section className="mainBox">
-        <section className="sectionOne">
+      <header id="header">
+        <img src={Logo} alt="logo" className="imgLogo" />
+        <div className="box-btn-head">
           <Button
-            text={"Click me"}
-            onSelect={() => handleClick(arr.text1)}
-            curr={curr === "1"}
+            onPrint={handlePrint}
+            text={"Home"}
+            id={0}
+            isActive={currMain === 0}
           />
           <Button
-            text={"Click me"}
-            onSelect={() => handleClick(arr.text2)}
-            curr={curr === "2"}
+            onPrint={handlePrint}
+            text={"Menu"}
+            id={1}
+            isActive={currMain === 1}
           />
           <Button
-            text={"Click me"}
-            onSelect={() => handleClick(arr.text3)}
-            curr={curr === "3"}
+            onPrint={handlePrint}
+            text={"About"}
+            id={2}
+            isActive={currMain === 2}
           />
           <Button
-            text={"Click me"}
-            onSelect={() => handleClick(arr.text4)}
-            curr={curr === "4"}
+            onPrint={handlePrint}
+            text={"Contact"}
+            id={3}
+            isActive={currMain === 3}
           />
-          <Button
-            text={"Click me"}
-            onSelect={() => handleClick(arr.text5)}
-            curr={curr === "5"}
-          />
-          <Button
-            text={"Click me"}
-            onSelect={() => handleClick(arr.text6)}
-            curr={curr === "6"}
-          />
-          <Button
-            text={"Click me"}
-            onSelect={() => handleClick(arr.text7)}
-            curr={curr === "6"}
-          />
-          <Button
-            text={"Click me"}
-            onSelect={() => handleClick(arr.text8)}
-            curr={curr === "6"}
-          />
-          <Button
-            text={"Click me"}
-            onSelect={() => handleClick(arr.text9)}
-            curr={curr === "6"}
-          />
-        </section>
+        </div>
+      </header>
+      <main id="main">{text}</main>
+      <section id="counter">
+        <button onClick={minus}>-</button>
+        <p>{person.age}</p>
+        <p>{person.name}</p>
+        <button onClick={plus}>+</button>
+      </section>
+
+      <section id="input">
+        <label htmlFor="text">Enter Text</label>
+        <input type="text" value={value} onChange={(e) => setValue(e.target.value)}/>
+        <h1>{value}</h1>
+      </section>
+
+      <section id="big-input">
+        <form onSubmit={(e) => {
+          e.preventDefault()
+          setIsSend(true)
+        }}>
+          <input type="text" />
+          <button type="submit">send</button>
+          <p>{send}</p>
+        </form>
       </section>
     </>
   );
